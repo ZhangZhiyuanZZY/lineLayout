@@ -63,4 +63,38 @@
 
 
 
+/**
+ *  targetContentOffset：CollectionView最终的偏移量
+ *  proposedContentOffset：CollectionView预期的偏移量
+ */
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+{
+    //1. rect
+    CGRect rect;
+    rect.origin.x = proposedContentOffset.x;
+    rect.size = self.collectionView.frame.size;
+    
+    //2. 得到cell的属性 数组
+    NSArray *array = [self layoutAttributesForElementsInRect:rect];
+    
+    //3. 得到collectionView中心线x
+    CGFloat centerX = proposedContentOffset.x + self.collectionView.bounds.size.width * 0.5;
+    
+    CGFloat miniX = MAXFLOAT;
+    //4. 遍历可见cell的属性
+    for (UICollectionViewLayoutAttributes *attrs in array) {
+        CGFloat delta = attrs.center.x - centerX;
+        //取得到中线的最小值
+        if(ABS(delta) <= ABS(miniX))
+        {
+            miniX = delta;
+        }
+    }
+    return  CGPointMake(proposedContentOffset.x + miniX, proposedContentOffset.y);
+}
+
+
+
+
+
 @end
