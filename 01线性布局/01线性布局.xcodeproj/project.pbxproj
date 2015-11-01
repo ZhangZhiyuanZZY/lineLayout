@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18D532391BE6790500957981 /* ZYImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D532371BE6790500957981 /* ZYImageCell.m */; };
+		18D5323A1BE6790500957981 /* ZYImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D532381BE6790500957981 /* ZYImageCell.xib */; };
 		18DE8B581BE62D960012F654 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE8B571BE62D960012F654 /* main.m */; };
 		18DE8B5B1BE62D960012F654 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE8B5A1BE62D960012F654 /* AppDelegate.m */; };
 		18DE8B5E1BE62D960012F654 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE8B5D1BE62D960012F654 /* ViewController.m */; };
@@ -17,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18D532361BE6790500957981 /* ZYImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYImageCell.h; sourceTree = "<group>"; };
+		18D532371BE6790500957981 /* ZYImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYImageCell.m; sourceTree = "<group>"; };
+		18D532381BE6790500957981 /* ZYImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYImageCell.xib; sourceTree = "<group>"; };
 		18DE8B531BE62D960012F654 /* 01线性布局.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "01线性布局.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DE8B571BE62D960012F654 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18DE8B591BE62D960012F654 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,6 +68,9 @@
 			children = (
 				18DE8B591BE62D960012F654 /* AppDelegate.h */,
 				18DE8B5A1BE62D960012F654 /* AppDelegate.m */,
+				18D532361BE6790500957981 /* ZYImageCell.h */,
+				18D532371BE6790500957981 /* ZYImageCell.m */,
+				18D532381BE6790500957981 /* ZYImageCell.xib */,
 				18DE8B6D1BE631AF0012F654 /* ZYLineLayout.h */,
 				18DE8B6E1BE631AF0012F654 /* ZYLineLayout.m */,
 				18DE8B5C1BE62D960012F654 /* ViewController.h */,
@@ -110,6 +118,7 @@
 		18DE8B4B1BE62D960012F654 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = ZY;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = ZZY;
 				TargetAttributes = {
@@ -143,6 +152,7 @@
 			files = (
 				18DE8B661BE62D960012F654 /* LaunchScreen.storyboard in Resources */,
 				18DE8B631BE62D960012F654 /* Assets.xcassets in Resources */,
+				18D5323A1BE6790500957981 /* ZYImageCell.xib in Resources */,
 				18DE8B611BE62D960012F654 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DE8B5E1BE62D960012F654 /* ViewController.m in Sources */,
+				18D532391BE6790500957981 /* ZYImageCell.m in Sources */,
 				18DE8B5B1BE62D960012F654 /* AppDelegate.m in Sources */,
 				18DE8B6F1BE631AF0012F654 /* ZYLineLayout.m in Sources */,
 				18DE8B581BE62D960012F654 /* main.m in Sources */,
@@ -304,6 +315,7 @@
 				18DE8B6C1BE62D960012F654 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

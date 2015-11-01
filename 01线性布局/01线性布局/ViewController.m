@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ZYLineLayout.h"
+#import "ZYImageCell.h"
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property(nonatomic, strong)UICollectionView *collectionView;
 
@@ -21,7 +22,7 @@ static NSString *ID = @"image";
 {
     if (_images == nil) {
         self.images = [[NSMutableArray alloc]init];
-        for (int i = 0; i < 20 ; i++ ) {
+        for (int i = 1; i <= 20 ; i++ ) {  //这里不能从0  开始 因为图片的名字是从1开始的
             [self.images addObject:[NSString stringWithFormat:@"%d", i]];
         }
     }
@@ -45,7 +46,8 @@ static NSString *ID = @"image";
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:rect collectionViewLayout:layout];
     
     //注册cell  注意 注册必须使用  collectionView
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+//    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+    [collectionView registerNib:[UINib nibWithNibName:@"ZYImageCell" bundle:nil] forCellWithReuseIdentifier:ID];
     //设置代理数据源xa
     collectionView.dataSource = self;
     collectionView.delegate = self;
@@ -63,10 +65,11 @@ static NSString *ID = @"image";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     //创建cell
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    ZYImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     
     //cell
-    cell.backgroundColor = [UIColor redColor];
+    //cell.backgroundColor = [UIColor redColor];
+    cell.imageName = self.images[indexPath.row];
     
     return cell;
 }
