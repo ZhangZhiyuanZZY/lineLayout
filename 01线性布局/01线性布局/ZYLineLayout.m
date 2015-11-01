@@ -33,9 +33,33 @@
     self.itemSize = CGSizeMake(itemH, itemH);
 }
 
+///返回collectionView上面每个元素的布局属性
+- (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
+{
+    //1. 拿到父类的cell的属性
+    NSArray *array = [super layoutAttributesForElementsInRect:rect];
+    
+    //2. 计算当前collectionView的x   偏移量加上, collectionView的width一半
+    CGFloat centerX = self.collectionView.contentOffset.x + self.collectionView.bounds.size.width * 0.5;
+    
+    //3. 循环 拿到UICollectionViewFlowLayout  对当前的属性的布局
+    for (UICollectionViewLayoutAttributes *attrs in array) {
+        
+        //计算item的中心点的x 到   collectionView之间的距离
+        CGFloat distance = ABS(centerX - attrs.center.x);
+        
+        //根据距离计算缩放比例（成反比）  离中心线越远, item越小
+        CGFloat scale = 1 - distance/ (self.collectionView.bounds.size.width + self.itemSize.width);
+        attrs.transform = CGAffineTransformMakeScale(scale, scale);
+    }
+    return array;
+}
 
-
-
+///当collectionView显示范围发生改变的时候会调用,  它会再调用, prepare和layoutAttributesForElementsInRect:(CGRect)rect 方法
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
+{
+    return YES;
+}
 
 
 
