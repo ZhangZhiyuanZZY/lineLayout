@@ -11,12 +11,6 @@
 @implementation ZYCircleLayout
 
 
-- (void)prepareLayout
-{
-    
-}
-
-
 ///决定cell如何排布
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
@@ -57,17 +51,23 @@
     
     //创建i对应的布局属性
     UICollectionViewLayoutAttributes *attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-    //旋转角度
-    CGFloat angel = indexPath.item * deltaAngle; //
-    //中心点
-    CGFloat iCenterX = centerX + raduis * cos(angel);
-    CGFloat iCenterY = centerY + raduis * sin(angel);
-    attrs.center = CGPointMake(iCenterX, iCenterY);
-    //size
+    
     attrs.size = CGSizeMake(50, 50);
     //设置层叠顺序  zIndex越大,  越在上面.
-//    attrs.zIndex = 100;
-    
+    //    attrs.zIndex = 100;
+
+    //如果当前只有一张图片那么就 让图片显示在中心点/ 不用旋转
+    if(count == 1){
+        attrs.center = CGPointMake(centerX, centerY);
+    }else{
+        //旋转角度
+        CGFloat angel = indexPath.item * deltaAngle; //
+        //中心点
+        CGFloat iCenterX = centerX + raduis * cos(angel);
+        CGFloat iCenterY = centerY + raduis * sin(angel);
+        attrs.center = CGPointMake(iCenterX, iCenterY);
+        //size
+           }
     
     return attrs;
    

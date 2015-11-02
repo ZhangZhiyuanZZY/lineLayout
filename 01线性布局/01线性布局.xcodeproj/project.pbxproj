@@ -11,6 +11,7 @@
 		18D5323A1BE6790500957981 /* ZYImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D532381BE6790500957981 /* ZYImageCell.xib */; };
 		18DCDCAF1BE702300058D46A /* ZYLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DCDCAE1BE702300058D46A /* ZYLineLayout.m */; };
 		18DCDCB21BE7025B0058D46A /* ZYCircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DCDCB11BE7025B0058D46A /* ZYCircleLayout.m */; };
+		18DCDCB51BE729520058D46A /* ZYStackLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DCDCB41BE729520058D46A /* ZYStackLayout.m */; };
 		18DE8B581BE62D960012F654 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE8B571BE62D960012F654 /* main.m */; };
 		18DE8B5B1BE62D960012F654 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE8B5A1BE62D960012F654 /* AppDelegate.m */; };
 		18DE8B5E1BE62D960012F654 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE8B5D1BE62D960012F654 /* ViewController.m */; };
@@ -27,6 +28,8 @@
 		18DCDCAE1BE702300058D46A /* ZYLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYLineLayout.m; sourceTree = "<group>"; };
 		18DCDCB01BE7025B0058D46A /* ZYCircleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCircleLayout.h; sourceTree = "<group>"; };
 		18DCDCB11BE7025B0058D46A /* ZYCircleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYCircleLayout.m; sourceTree = "<group>"; };
+		18DCDCB31BE729520058D46A /* ZYStackLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYStackLayout.h; sourceTree = "<group>"; };
+		18DCDCB41BE729520058D46A /* ZYStackLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYStackLayout.m; sourceTree = "<group>"; };
 		18DE8B531BE62D960012F654 /* 01线性布局.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "01线性布局.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DE8B571BE62D960012F654 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18DE8B591BE62D960012F654 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,6 +60,8 @@
 				18DCDCAE1BE702300058D46A /* ZYLineLayout.m */,
 				18DCDCB01BE7025B0058D46A /* ZYCircleLayout.h */,
 				18DCDCB11BE7025B0058D46A /* ZYCircleLayout.m */,
+				18DCDCB31BE729520058D46A /* ZYStackLayout.h */,
+				18DCDCB41BE729520058D46A /* ZYStackLayout.m */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				TargetAttributes = {
 					18DE8B521BE62D960012F654 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 7R5X3C7UD7;
 					};
 				};
 			};
@@ -181,6 +187,7 @@
 				18DE8B5E1BE62D960012F654 /* ViewController.m in Sources */,
 				18DCDCB21BE7025B0058D46A /* ZYCircleLayout.m in Sources */,
 				18D532391BE6790500957981 /* ZYImageCell.m in Sources */,
+				18DCDCB51BE729520058D46A /* ZYStackLayout.m in Sources */,
 				18DE8B5B1BE62D960012F654 /* AppDelegate.m in Sources */,
 				18DE8B581BE62D960012F654 /* main.m in Sources */,
 			);
@@ -292,10 +299,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "01线性布局/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ZZY.-1----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -303,10 +314,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "01线性布局/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ZZY.-1----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

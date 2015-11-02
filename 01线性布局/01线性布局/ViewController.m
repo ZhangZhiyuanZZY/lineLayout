@@ -10,8 +10,9 @@
 #import "ZYLineLayout.h"
 #import "ZYImageCell.h"
 #import "ZYCircleLayout.h"
+#import "ZYStackLayout.h"
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
-@property(nonatomic, strong)UICollectionView *collectionView;
+@property(nonatomic, weak) UICollectionView *collectionView;
 
 @property(nonatomic, strong)NSMutableArray *images;
 @end
@@ -34,11 +35,19 @@ static NSString *ID = @"image";
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 //    self.collectionView.collectionViewLayout = [[ZYLineLayout alloc]init];
-    if([self.collectionView.collectionViewLayout isKindOfClass:[ZYLineLayout class]]){
+    if([self.collectionView.collectionViewLayout isKindOfClass:[ZYStackLayout class]]) {
         [self.collectionView setCollectionViewLayout:[[ZYCircleLayout alloc]init] animated:YES];
-    }else if ([self.collectionView.collectionViewLayout isKindOfClass:[ZYCircleLayout class]]) {
-        [self.collectionView setCollectionViewLayout:[[ZYLineLayout alloc]init] animated:YES];
     }
+    else if ([self.collectionView.collectionViewLayout isKindOfClass:[ZYCircleLayout class]]) {
+        [self.collectionView setCollectionViewLayout:[[ZYStackLayout alloc]init] animated:YES];
+    }
+    
+//    if ([self.collectionView.collectionViewLayout isKindOfClass:[HMLineLayout class]]) {
+//        [self.collectionView setCollectionViewLayout:[[HMCircleLayout alloc] init] animated:YES];
+//    } else if ([self.collectionView.collectionViewLayout isKindOfClass:[HMCircleLayout class]]) {
+//        [self.collectionView setCollectionViewLayout:[[HMLineLayout alloc] init] animated:YES];
+//    }
+
 }
 
 
@@ -56,10 +65,8 @@ static NSString *ID = @"image";
     CGRect rect = CGRectMake(0, 100, w, 300);
     
     //创建布局
-    ZYCircleLayout *layout = [[ZYCircleLayout alloc]init];
-    
-    
-    
+    ZYStackLayout *layout = [[ZYStackLayout alloc]init];
+
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:rect collectionViewLayout:layout];
     
     //注册cell  注意 注册必须使用  collectionView
@@ -91,5 +98,17 @@ static NSString *ID = @"image";
     return cell;
 }
 
+//#pragma mark -代理方法
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //删除点击到的  indexPath.item数据
+    [self.images removeObjectAtIndex:indexPath.item];
+    
+    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+    
+    //刷新
+//    [self.collectionView reloadData];
+//    NSLog(@"%tu", indexPath.item);
+}
 
 @end
