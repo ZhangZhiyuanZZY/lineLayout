@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ZYLineLayout.h"
 #import "ZYImageCell.h"
+#import "ZYCircleLayout.h"
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property(nonatomic, strong)UICollectionView *collectionView;
 
@@ -36,10 +37,10 @@ static NSString *ID = @"image";
     
     //设置collectionView  frame
     CGFloat w = self.view.frame.size.width;
-    CGRect rect = CGRectMake(0, 100, w, 200);
+    CGRect rect = CGRectMake(0, 100, w, 300);
     
     //创建布局
-    ZYLineLayout *layout = [[ZYLineLayout alloc]init];
+    ZYCircleLayout *layout = [[ZYCircleLayout alloc]init];
     
     
     
