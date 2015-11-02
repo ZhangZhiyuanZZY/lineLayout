@@ -65,7 +65,7 @@ static NSString *ID = @"image";
     CGRect rect = CGRectMake(0, 100, w, 300);
     
     //创建布局
-    ZYStackLayout *layout = [[ZYStackLayout alloc]init];
+    ZYLineLayout *layout = [[ZYLineLayout alloc]init];
 
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:rect collectionViewLayout:layout];
     

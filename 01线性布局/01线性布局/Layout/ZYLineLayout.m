@@ -31,6 +31,12 @@
     
     //itemSize  这个属性是流水布局中设置, item的size
     self.itemSize = CGSizeMake(itemH, itemH);
+    
+    //增加内边距, 解决当我们最左/右边,   item应该停在中间放大的问题
+    CGFloat inset = (self.collectionView.frame.size.width - self.itemSize.width) * 0.5;
+    self.sectionInset = UIEdgeInsetsMake(0, inset, 0, inset);
+    
+    
 }
 
 ///返回collectionView上面每个元素的布局属性
