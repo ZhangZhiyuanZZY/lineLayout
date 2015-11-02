@@ -11,6 +11,19 @@
 @implementation ZYStackLayout
 
 
+
+//NSMutableArray *array = [NSMutableArray array];
+//NSUInteger count = [self.collectionView numberOfItemsInSection:0];
+//
+//for (int i = 0; i < count; i++) {
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+//    UICollectionViewLayoutAttributes *attrs = [self layoutAttributesForItemAtIndexPath:indexPath];
+//    [array addObject:attrs];
+//}
+//
+//return array;
+
+
 //item在rect中的布局
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
@@ -24,7 +37,7 @@
         
         //取得i 所在的indexpath
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
-        UICollectionViewLayoutAttributes *attrs = [self.collectionView layoutAttributesForItemAtIndexPath:indexPath];
+        UICollectionViewLayoutAttributes *attrs = [self layoutAttributesForItemAtIndexPath:indexPath];
         
         //添加到数组
         [arrayM addObject:attrs];
