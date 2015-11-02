@@ -30,6 +30,22 @@ static NSString *ID = @"image";
     return _images;
 }
 
+#pragma mark - 点击切换布局
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+//    self.collectionView.collectionViewLayout = [[ZYLineLayout alloc]init];
+    if([self.collectionView.collectionViewLayout isKindOfClass:[ZYLineLayout class]]){
+        [self.collectionView setCollectionViewLayout:[[ZYCircleLayout alloc]init] animated:YES];
+    }else if ([self.collectionView.collectionViewLayout isKindOfClass:[ZYCircleLayout class]]) {
+        [self.collectionView setCollectionViewLayout:[[ZYLineLayout alloc]init] animated:YES];
+    }
+}
+
+
+
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
